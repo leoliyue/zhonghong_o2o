@@ -1,0 +1,29 @@
+{% extends 'Fangfull/base.html' %}
+{% block body %}
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <td>选择/接口id</td>
+                <td>接口地址</td>
+                <td>描述</td>
+                <td>状态</td>
+                <td>所需参数</td>
+                <td>Url_id</td>
+            </tr>
+        </thead>
+        <tbody>
+            {% for data in all_data %}
+                 <tr>
+                     <td>{{ data.data_id }}</td>
+                     <td>{{ data.data_name }}</td>
+                     <td>{{ data.data_stuts }}</td>
+                     <td>{{ data.data_describe }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <a href="#">添加</a>
+
+
+{% endblock %}

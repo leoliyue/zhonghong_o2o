@@ -1,0 +1,43 @@
+{% extends 'Fangfull/base.html' %}
+{% block body %}
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <td>选择/接口id</td>
+                <td>接口地址</td>
+                <td>描述</td>
+                <td>状态</td>
+                <td>所需参数</td>
+                <td>Url_id</td>
+            </tr>
+        </thead>
+        <tbody>
+            {% for allrequests in all_requests %}
+                <tr>
+                    <td><input name="checkrequest" type="checkbox" value="{{ allrequests.requests_id}}" />
+                        <label>{{ allrequests.requests_id}}</label>
+                    </td>
+                    <td>{{ allrequests.requests_addres}}</td>
+                    <td>{{ allrequests.requests_describe}}</td>
+                    <td>{{ allrequests.requests_stuts}}</td>
+                    <td>
+
+                        <a href="{% url 'getRequestData' url_id allrequests.requests_id %}">
+                        {% if allrequests.requests_data %}
+                            {{ allrequests.requests_data}}
+                        {% else %}
+                            点击添加
+                        {% endif %}
+                        </a>
+                    </td>
+                <td>{{ url_id }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <div>
+    <a href="{% url 'newRequests' %}"> 新增接口信息</a>
+    <a >提交运行</a>
+    </div>
+
+{% endblock %}

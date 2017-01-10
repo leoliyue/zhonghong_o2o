@@ -1,0 +1,51 @@
+{% extends 'Fangfull/base.html' %}
+{% block body %}
+<form class="form-horizontal" role="form" action="{% url 'saveContentUrl' %}" method="post">
+    {% csrf_token %}
+    <div class="form-group">
+        <label for="firstname" class="col-sm-2 control-label">IP_blue</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" name="url_blue" placeholder="请输入蓝色页地址" id="url_blue">
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="lastname" class="col-sm-2 control-label">IP_red</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" name="url_red" placeholder="请输入红色页地址" id="url_red">
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="lastname" class="col-sm-2 control-label">类型</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" name="url_type" placeholder="请输入连接类型">
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="lastname" class="col-sm-2 control-label">状态</label>
+        <div class="col-sm-10">
+            <select name="url_stuts">
+                <option value="">请选择</option>
+                <option value="1">正常</option>
+                <option value="2">删除</option>
+            </select>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="lastname" class="col-sm-2 control-label">数据库</label>
+        <div class="col-sm-10">
+            <select name="sql_id">
+                {% if Sqlmessage %}
+                    {% for mes in Sqlmessage %}
+                       <option id="{{ mes.sql_id }}"  value="{{ mes.sql_id }}" >{{ mes.sql_name }}</option>
+                    {% endfor %}
+                {% endif %}
+            </select>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+            <button type="submit" class="btn btn-default" onclick="return newContentUrl(this.form)">保存</button>
+        </div>
+    </div>
+</form>
+{% endblock %}

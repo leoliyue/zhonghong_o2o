@@ -1,0 +1,31 @@
+
+{% extends 'Fangfull/base.html' %}
+{% block body %}
+    <form action="" method="get">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <td>操作</td>
+                <td>id</td>
+                <td>接口地址</td>
+                <td>状态</td>
+                <td>描述</td>
+
+            </tr>
+        </thead>
+        <tbody>
+
+        {% for all_ResData in all_ResData %}
+            <tr>
+                <td><input type="checkbox" value="{{ all_ResData.data_id }}" name="checkrequest_data" id = 'checkrequest_data'></td>
+                <td>{{ all_ResData.data_id }}</td>
+                <td>{{ all_ResData.data_name }}</td>
+                <td>{{ all_ResData.data_stuts }}</td>
+                <td>{{ all_ResData.data_describe }}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    <input type="button" value="确定" onclick="return save_checkdata(this.form)">
+    </form>
+{% endblock %}

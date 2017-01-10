@@ -1,0 +1,21 @@
+{% extends 'Fangfull/base.html' %}
+{% block body %}
+<div>
+    {% if get_contenturl %}
+    <ul>
+        <li>{{ get_contenturl.sql_id }}</li>
+        <li>{{ get_contenturl.sql_name }}</li>
+        <li>{{ get_contenturl.sql_host }}</li>
+        <li>{{ get_contenturl.sql_port }}</li>
+        <li>{{ get_contenturl.sql_user_name }}</li>
+        <li>{{ get_contenturl.sql_user_passwd }}</li>
+        <li>{{ get_contenturl.sql_db }}</li>
+        <li>{{ get_contenturl.sql_stuts }}</li>
+    </ul>
+    {% else %}
+        <ul>
+            <li></li>
+        </ul>
+    {% endif %}
+</div>
+{% endblock %}

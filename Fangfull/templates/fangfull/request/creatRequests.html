@@ -1,0 +1,38 @@
+{% extends 'Fangfull/base.html' %}
+{% block body %}
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <td>接口地址</td>
+                <td>状态</td>
+                <td>描述</td>
+                <td>所需参数</td>
+
+            </tr>
+        </thead>
+        <tbody>
+            <form action="{% url 'saveRequests' %}" method="post">
+                {% csrf_token %}
+                <tr>
+                    <td><input type="text" id = 'requests_addres'></td>
+                    <td><input type="text" id = 'requests_describe'></td>
+                    <td><input type="text" id = 'requests_stuts'></td>
+                    <td>
+                        <input type="text" id = 'requests_data'>
+                        <a href="{% url 'viewRequestData'%}" target="_blank">查看</a>
+                    </td>
+
+                </tr>
+                <tr>
+                    <td>
+{#                        <input type="button" value="新增">#}
+                        <input type="submit" value="保存"></td>
+                </tr>
+            </form>
+
+        </tbody>
+    </table>
+{% endblock %}
+
+
+
